@@ -1,19 +1,24 @@
 class TokenTask implements Runnable {
     Token token;
-    int id;
+    String id;
+    int delay;
 
-    public TokenTask (Token token, int id) {
+    public TokenTask (Token token, String id, int delay) {
         this.token = token;
         this.id = id;
+        this.delay = delay;
     }
 
-    public static void run() {
+    public void run() {
         while(true) {
             System.out.println(this.id + ": requests price");
-            int price = token.getPrice();
-            System.out.println(this.id + ": requests price");
+
             System.out.println(this.id + ": starts sleeping");
-            this.sleep(60);
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }
