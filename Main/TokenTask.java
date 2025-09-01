@@ -10,7 +10,7 @@ class TokenTask implements Runnable {
     public static void run() {
         while(true) {
             System.out.println(this.id + ": requests price");
-            token.getPrice();
+            int price = token.getPrice();
             System.out.println(this.id + ": requests price");
             System.out.println(this.id + ": starts sleeping");
             this.sleep(60);

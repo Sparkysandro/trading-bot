@@ -7,5 +7,9 @@ class Token {
         this.url = url;
     }
 
+    public int getPrice() {
+        return 1;
+    }
+
 
 }
